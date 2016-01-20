@@ -1,0 +1,122 @@
+﻿html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#formMasterPage{
+    width: 100%;
+}
+
+.idListProducts{
+    width: 100%;
+    height: 100%;
+    clear: both;
+}
+
+.productsList{
+    width: 32%;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.tabelaProdutos{
+    border: 2px solid black;
+    width: 100%;}
+
+#imageLogotipo{
+    width: 80%;
+    height: 80%;
+}
+
+#masterPageHeader{
+    width: 100%;
+    height: 15%;
+}
+
+#logotipo{
+    width: 20%;
+    float: left;
+}
+
+#masterPageLogin{
+    width: 20%;
+    float: right;
+}
+
+#masterPageNav{
+    clear: both;
+    width: 100%;
+    height: 20%;
+    margin-bottom: 5px;
+}
+
+#divLinks{
+    width: 30%;
+    float: left;
+}
+
+#divCategorias{
+    width: 30%;
+    float: right;
+}
+
+#divSearchProduct{
+    margin-bottom: 10px;
+    width: 40%;
+    margin-left: 20%;
+}
+
+#masterPageSection{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+    /*padding-bottom: 20px;
+    bottom: 50px;*/
+}
+
+#masterPageFooter{
+    width: 100%;
+    clear: both;
+    /*position: fixed;
+    top: 95%;*/
+}
+
+.productName{
+    font-family: Candara, Arial;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.productUnitPrice{
+    font-family: Chiller, Arial;
+    font-size: 1.1em;
+    color: red;
+}
+
+.productContactName{
+    font-family: Chiller, Arial;
+    font-size: 0.8em;
+}
+
+.tdColuna1{
+    width: 83%;
+}
+
+.tdColuna2{
+    width: 17%;
+}
+
+#divAdimPage{
+    clear:both;
+}
+
+.divLogonPage{
+    clear:both;
+}
+
+#tdDetalhes{
+    font-family: Chiller, Arial;
+    font-size: 0.2em;
+}

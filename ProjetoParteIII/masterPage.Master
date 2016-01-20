@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterPage.master.cs" Inherits="ProjetoParteIII.masterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="estilos.css" />
+</head>
+<body>
+    <form id="formMasterPage" runat="server">
+        <header id="masterPageHeader">
+            <div id="logotipo"><asp:Image ID="imageLogotipo" runat="server" ImageUrl="/imagens/Google_logo.jpg" AlternateText="Logotipo empresa"/></div>
+            <div id="masterPageLogin">
+                <asp:HyperLink ID="hyperLinkLogon" runat="server" NavigateUrl="~/logon.aspx">Login</asp:HyperLink>
+                <asp:HyperLink ID="hyperLinkRegistar" runat="server" NavigateUrl="~/logon.aspx">Registar</asp:HyperLink>
+                <asp:HyperLink ID="hyperLinkAdminPage" runat="server" Visible="false" Enabled="false">Nome</asp:HyperLink>
+                <asp:HyperLink ID="hyperLinkLogout" runat="server" NavigateUrl="~/logout.aspx" Visible="false" Enabled="false">Logout</asp:HyperLink>
+            </div>
+        </header>
+
+        <nav id="masterPageNav">
+            <div id="divLinks">
+                <asp:HyperLink ID="hyperLinkHome" runat="server" NavigateUrl="~/home.aspx">Home</asp:HyperLink>
+                <asp:HyperLink ID="hyperLinkProducts" runat="server" NavigateUrl="~/products.aspx">Products</asp:HyperLink>
+
+            </div>
+            <div id="divCategorias">
+            <p>Escolha a categoria: 
+            <asp:DropDownList ID="DropDownListCategories" runat="server" OnSelectedIndexChanged="pesquisarCategorias" AutoPostBack="true">
+                
+            </asp:DropDownList>
+            
+            
+               </p>
+                </div> 
+        </nav>
+
+        <section id="masterPageSection">
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </div>
+         </section>
+
+        <footer id="masterPageFooter">
+            <asp:HyperLink runat="server">Contactos</asp:HyperLink>
+            <asp:HyperLink runat="server">Termos de utilização</asp:HyperLink>
+        </footer>
+    </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿SELECT TOP 10 o.ProductID, SUM(Quantity) as totalVendas, ProductName, c.CategoryName, p.UnitPrice
+  FROM [Order Details] as o
+  inner join Products as p on p.ProductID = o.ProductID
+  inner join Categories as c on c.CategoryID = p.CategoryID
+  group by o.ProductID, ProductName, c.CategoryName, p.UnitPrice
+  order by totalVendas desc
+
+
+  SELECT p.ProductID, ProductName, c.CategoryName, p.UnitPrice
+  FROM Products as p
+  inner join Categories as c on c.CategoryID = p.CategoryID
+  where p.ProductName LIKE '%f%'
+  group by p.ProductID, ProductName, c.CategoryName, p.UnitPrice
+
+
+  SELECT p.ProductID, ProductName, c.CategoryName, p.UnitPrice 
+FROM Products as p 
+inner join Categories as c on c.CategoryID = p.CategoryID 
+WHERE p.CategoryID LIKE '%3%' 
+group by p.ProductID, ProductName, c.CategoryName, p.UnitPrice
+
+
+
+
+
+
+
+
+
+
+
+public int ProductID
+        {
+            get { return _productID; }
+            set { _productID = value; }
+        }
+
+        public string ProductName
+        {
+            get { return _productName; }
+            set { _productName = value; }
+        }
+
+        public int ProductQuantity
+        {
+            get { return _productQuantity; }
+            set { _productQuantity = value; }
+        }
+
+        public decimal ProductPrice
+        {
+            get { return _productPrice; }
+            set { _productPrice = value; }
+        }
