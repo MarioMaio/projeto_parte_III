@@ -70,6 +70,7 @@
     <Content Include="logout.aspx" />
     <Content Include="masterPage.Master" />
     <Content Include="packages.config" />
+    <Content Include="Objetivo_Mario_Maio.docx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
