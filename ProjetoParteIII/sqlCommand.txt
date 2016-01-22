@@ -52,3 +52,6 @@ public int ProductID
             get { return _productPrice; }
             set { _productPrice = value; }
         }
+
+		//linha 8 carrinhoCompras.aspx
+		 OnRowDataBound="gvShoppingCart_RowDataBound" OnRowCommand="gvShoppingCart_RowCommand"

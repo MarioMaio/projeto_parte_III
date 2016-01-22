@@ -15,9 +15,9 @@
                     <asp:Button ID="buttonSearchProduct" runat="server" Text="Procurar" OnClick="procurarProdutos" />
                 </div>
                 <div>
-                    <asp:ListView ID="productList" runat="server" GroupItemCount="4">
+                    <asp:ListView ID="productListHome" runat="server" GroupItemCount="6">
                         <EmptyDataTemplate>
-                            <table >
+                            <table>
                                 <tr>
                                     <td>No data was returned.</td>
                                 </tr>
@@ -33,21 +33,28 @@
                         </GroupTemplate>
                         <ItemTemplate>
                             <td runat="server">
-                                <table>
+                                <table id="tabelaProdutos" class="tabelaProdutos">
                                     <tr>
                                         <td>
-                                            <a href="ProductDetails.aspx?productID=<%# Eval("ProductID") %>">
+                                            <a href="ProductDetails.aspx?productID=<%# Eval("ProductID") %>" class="productName">
                                                 <span>
                                                     <%# Eval("ProductName") %>
                                                 </span>
                                             </a>
                                             <br />
-                                            <span>
+                                            <span class="productCategoryName">
                                                 <%# Eval("CategoryName")%>
                                             </span>
                                             <br />
-                                            <span>
-                                                <b>Preço: </b><%#:String.Format("{0:c}", Eval("UnitPrice"))%>
+                                            <br />
+                                            <span class="productUnitPrice">
+                                                <b>Preço unitário: </b><%#:String.Format("{0:c}", Eval("UnitPrice"))%>
+                                            </span>
+                                            <br />
+                                            <span class="addItens">
+                                                <asp:TextBox ID="textBoxProductID" runat="server" Visible="false" Enabled="false" Text='<%# Eval("ProductID") %>'></asp:TextBox>
+                                                <asp:TextBox ID="textBoxQuantity" runat="server" Text="1" Width="20"></asp:TextBox>
+                                                <asp:HyperLink ID="hyperLinkAdicionar" runat="server" NavigateUrl="~/carrinhoCompras.aspx">Adicionar</asp:HyperLink>
                                             </span>
                                             <br />
                                         </td>
@@ -78,33 +85,6 @@
                         </LayoutTemplate>
                     </asp:ListView>
                 </div>
-               <!-- <asp:Repeater ID="repeaterControlListagemProdutos" runat="server">
-                    <ItemTemplate>
-                        
-                        <div class="productsList">
-                            <table id="tabelaProdutos" class="tabelaProdutos">
-                                <tbody>
-                                    <tr>
-                                        <td  class="tdColuna1"><asp:label class="productName" runat="server"><%# DataBinder.Eval(Container.DataItem, "ProductName") %></asp:label></td>
-                                        <td rowspan="2"  class="tdColuna2"><asp:label class="productUnitPrice" runat="server"><%# DataBinder.Eval(Container.DataItem, "UnitPrice") %> €</asp:label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><asp:label class="productCategoryName" runat="server"><%# DataBinder.Eval(Container.DataItem, "CategoryName") %></asp:label></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="addItens">
-                                            <asp:TextBox ID="textBoxProductID" runat="server" Visible="false" Enabled="false" Text='<%# Eval("ProductID") %>'></asp:TextBox>
-                                            <asp:TextBox ID="textBoxQuantity" runat="server" Text="1" Width="20"></asp:TextBox>
-                                            <asp:Button ID="buttonAddProduct" runat="server" Text="Adicionar" OnClick="adicionarProdutoCarrinho_Click"/>
-                                        </td>
-                                        <td class="tdDetalhes">+Detalhes</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                            
-                    </ItemTemplate>
-                </asp:Repeater> -->
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>

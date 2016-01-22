@@ -49,8 +49,8 @@ namespace ProjetoParteIII
         {
             if (!IsPostBack)
             {
-                using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
-                //using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
+                //using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
+                using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
                 {
                     daCategories = ProjetoConnection.DataRead(sqlConnection, tableNameCategories);
                     dsCategories = new DataSet();
@@ -85,8 +85,8 @@ namespace ProjetoParteIII
             {
                 try
                 {
-                    //conn = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true");
-                    conn = new SqlConnection(@"server=DESKTOP-R5I2GJD\SQLEXPRESS;Integrated Security=SSPI;database=Northwind");
+                    conn = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true");
+                    //conn = new SqlConnection(@"server=DESKTOP-R5I2GJD\SQLEXPRESS;Integrated Security=SSPI;database=Northwind");
                     conn.Open();
                     cmd = new SqlCommand("SELECT CONCAT(FirstName, ' ', LastName) as EmployeeName FROM Employees WHERE EmployeeID=@employeeID", conn);
                     cmd.Parameters.Add("@employeeID", SqlDbType.Int);
@@ -106,8 +106,8 @@ namespace ProjetoParteIII
             {
                 try
                 {
-                    //conn = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true");
-                    conn = new SqlConnection(@"server=DESKTOP-R5I2GJD\SQLEXPRESS;Integrated Security=SSPI;database=Northwind");
+                    conn = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true");
+                    //conn = new SqlConnection(@"server=DESKTOP-R5I2GJD\SQLEXPRESS;Integrated Security=SSPI;database=Northwind");
                     conn.Open();
                     cmd = new SqlCommand("SELECT CompanyName FROM Customers WHERE CustomerID=@customerID", conn);
                     cmd.Parameters.Add("@customerID", SqlDbType.NVarChar, 50);

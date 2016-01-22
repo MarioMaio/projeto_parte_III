@@ -11,7 +11,14 @@ namespace ProjetoParteIII
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ShoppingCart.Instance.AddItem(1, "Teste", 10, 1);
+            preencherCarrinho();
+        }
 
+        private void preencherCarrinho()
+        {
+            gvShoppingCart.DataSource = ShoppingCart.Instance.Items;
+            gvShoppingCart.DataBind();
         }
     }
 }

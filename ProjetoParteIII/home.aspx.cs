@@ -14,8 +14,8 @@ namespace ProjetoParteIII
         private SqlConnection sqlConnection;
         private DataSet dsProducts;
         private SqlDataAdapter daProducts;
-        //private const string tableNameOrderDetails = "[Order Details]";
-        private const string tableNameOrderDetails = "[OrderDetails]"; //PC de casa
+        private const string tableNameOrderDetails = "[Order Details]";
+        //private const string tableNameOrderDetails = "[OrderDetails]"; //PC de casa
         private const string tableNameProducts = "Products";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,17 +25,17 @@ namespace ProjetoParteIII
 
         private void ligacaoBaseDados()
         {
-            using (sqlConnection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
+            //using (sqlConnection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
             //using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
-            //using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
+            using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
             {
                 daProducts = ProjetoConnection.DataRead(sqlConnection);
                 dsProducts = new DataSet();
                 daProducts.Fill(dsProducts, tableNameOrderDetails);
 
 
-                productList.DataSource = dsProducts.Tables[0];
-                productList.DataBind();
+                productListHome.DataSource = dsProducts.Tables[0];
+                productListHome.DataBind();
 
                 //repeaterControlListagemProdutos.DataSource = dsProducts.Tables[0];
                 //repeaterControlListagemProdutos.DataBind();
@@ -44,16 +44,16 @@ namespace ProjetoParteIII
 
         protected void procurarProdutos(object sender, EventArgs e)
         {
-            using (sqlConnection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
+            //using (sqlConnection = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
             //using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
-            //using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
+            using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
             {
                 daProducts = ProjetoConnection.DataRead(sqlConnection, "ProductName", textBoxSearchProduct.Text);
                 dsProducts = new DataSet();
                 daProducts.Fill(dsProducts, tableNameProducts);
 
-                productList.DataSource = dsProducts.Tables[0];
-                productList.DataBind();
+                productListHome.DataSource = dsProducts.Tables[0];
+                productListHome.DataBind();
 
                 //repeaterControlListagemProdutos.DataSource = dsProducts.Tables[0];
                 //repeaterControlListagemProdutos.DataBind();
@@ -62,17 +62,6 @@ namespace ProjetoParteIII
             }
         }
 
-        protected void adicionarProdutoCarrinho_Click(object sender, EventArgs e)
-        {
-                //Label fvLabel = (Label)FindControl("labelProductID");
-            if (!IsPostBack)
-            { 
-                Response.Write("Teste"); 
-            }
-                
-                //ShoppingCart.Instance.AddItem(labelProductID);
-                
-        }
 
         
     }

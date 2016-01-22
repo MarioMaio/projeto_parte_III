@@ -13,11 +13,28 @@ namespace ProjetoParteIII
         private int _productQuantity;
         private decimal _productPrice;
 
+        public int ProductID
+        {
+            get { return _productID; }
+            set { _productID = value; }
+        }
+
+        public string ProductName
+        {
+            get { return _productName; }
+            set { _productName = value; }
+        }
 
         public int ProductQuantity
         {
             get { return _productQuantity; }
             set { _productQuantity = value; }
+        }
+
+        public decimal ProductPrice
+        {
+            get { return _productPrice; }
+            set { _productPrice = value; }
         }
 
 
