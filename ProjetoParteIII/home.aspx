@@ -6,10 +6,10 @@
     </div>
     <div class="idListProducts">
         
-        <asp:ScriptManager ID="scriptManagerHome" runat="server">
+        <!--<asp:ScriptManager ID="scriptManagerHome" runat="server">
             </asp:ScriptManager>
         <asp:UpdatePanel ID="updatePanelProductsHome" runat="server" UpdateMode="Conditional">
-            <ContentTemplate>
+            <ContentTemplate>-->
                 <div id="divSearchProduct">
                     <asp:TextBox ID="textBoxSearchProduct" runat="server"></asp:TextBox>
                     <asp:Button ID="buttonSearchProduct" runat="server" Text="Procurar" OnClick="procurarProdutos" />
@@ -23,9 +23,6 @@
                                 </tr>
                             </table>
                         </EmptyDataTemplate>
-                        <EmptyItemTemplate>
-                            <td/>
-                        </EmptyItemTemplate>
                         <GroupTemplate>
                             <tr id="itemPlaceholderContainer" runat="server">
                                 <td id="itemPlaceholder" runat="server"></td>
@@ -53,8 +50,11 @@
                                             <br />
                                             <span class="addItens">
                                                 <asp:TextBox ID="textBoxProductID" runat="server" Visible="false" Enabled="false" Text='<%# Eval("ProductID") %>'></asp:TextBox>
-                                                <asp:TextBox ID="textBoxQuantity" runat="server" Text="1" Width="20"></asp:TextBox>
-                                                <asp:HyperLink ID="hyperLinkAdicionar" runat="server" NavigateUrl="~/carrinhoCompras.aspx">Adicionar</asp:HyperLink>
+                                                <asp:TextBox ID="textBoxQuantity"  runat="server" Text="1" Width="20"></asp:TextBox>
+                                                
+                                                <asp:HyperLink ID="hyperLinkAdicionar" runat="server" NavigateUrl='<%# string.Format("~/carrinhoCompras.aspx?pID={0}&pQuantity={1}&pName={2}&pUnitPrice={3}", HttpUtility.UrlEncode(Eval("ProductID").ToString()), 1, HttpUtility.UrlEncode(Eval("ProductName").ToString()), HttpUtility.UrlEncode(Eval("UnitPrice").ToString())) %>'>Adicionar</asp:HyperLink>
+
+                                                <asp:Button ID="buttonAdd" runat="server" Text="Add" CommandArgument='<%# Eval("ProductID") %>' OnClick="adicionarArtigo_OnClick" />
                                             </span>
                                             <br />
                                         </td>
@@ -85,7 +85,7 @@
                         </LayoutTemplate>
                     </asp:ListView>
                 </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+            <!--</ContentTemplate>
+        </asp:UpdatePanel>-->
     </div>
 </asp:Content>

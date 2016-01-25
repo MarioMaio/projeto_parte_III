@@ -9,9 +9,19 @@ namespace ProjetoParteIII
 {
     public partial class carrinhoCompras : System.Web.UI.Page
     {
+        private int pId;
+        private string pName;
+        private int pQuantity;
+        private decimal pUnitPrice;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            ShoppingCart.Instance.AddItem(1, "Teste", 10, 1);
+            pId = Convert.ToInt16(Request.QueryString["pID"]);
+            pName = Request.QueryString["pName"];
+            pQuantity = Convert.ToInt16(Request.QueryString["pQuantity"]);
+            pUnitPrice = Convert.ToDecimal(Request.QueryString["pUnitPrice"]);
+
+            ShoppingCart.Instance.AddItem(pId, pName, pQuantity, pUnitPrice);
             preencherCarrinho();
         }
 

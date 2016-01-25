@@ -20,7 +20,10 @@ namespace ProjetoParteIII
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ligacaoBaseDados();
+            if (!IsPostBack)
+            {
+                ligacaoBaseDados();
+            }
         }
 
         private void ligacaoBaseDados()
@@ -36,7 +39,7 @@ namespace ProjetoParteIII
 
                 productListHome.DataSource = dsProducts.Tables[0];
                 productListHome.DataBind();
-
+                
                 //repeaterControlListagemProdutos.DataSource = dsProducts.Tables[0];
                 //repeaterControlListagemProdutos.DataBind();
             }
@@ -60,6 +63,15 @@ namespace ProjetoParteIII
 
                 
             }
+        }
+
+        
+
+        protected void adicionarArtigo_OnClick(object sender, EventArgs e)
+        {
+
+            Control myControl1 = FindControl("textBoxQuantity");
+            Response.Write(myControl1);
         }
 
 

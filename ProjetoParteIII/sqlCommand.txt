@@ -55,3 +55,6 @@ public int ProductID
 
 		//linha 8 carrinhoCompras.aspx
 		 OnRowDataBound="gvShoppingCart_RowDataBound" OnRowCommand="gvShoppingCart_RowCommand"
+
+
+		 '<%# Eval("ProductID", "~/carrinhoCompras.aspx?pID={0}") %>'
