@@ -59,14 +59,15 @@ namespace ProjetoParteIII
                 {
                     if (item.Equals(newItem))
                     {
-                        item.ProductQuantity++;
+                        //item.ProductQuantity++;
+                        item.ProductQuantity += productQuantity;
                         return;
                     }
                 }
             }
             else
             {
-                newItem.ProductQuantity = 1;
+                //newItem.ProductQuantity = 1;
                 Items.Add(newItem);
             }
         }

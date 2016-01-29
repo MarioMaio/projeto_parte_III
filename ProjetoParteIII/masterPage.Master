@@ -18,6 +18,7 @@
                 <asp:HyperLink ID="hyperLinkRegistar" runat="server" NavigateUrl="~/logon.aspx">Registar</asp:HyperLink>
                 <asp:HyperLink ID="hyperLinkAdminPage" runat="server" Visible="false" Enabled="false">Nome</asp:HyperLink>
                 <asp:HyperLink ID="hyperLinkLogout" runat="server" NavigateUrl="~/logout.aspx" Visible="false" Enabled="false">Logout</asp:HyperLink>
+                <asp:HyperLink ID="hyperLinkCarrinhoCompras" runat="server" NavigateUrl="~/carrinhoCompras.aspx" Visible="false" Enabled="false">Carrinho</asp:HyperLink>
             </div>
         </header>
 

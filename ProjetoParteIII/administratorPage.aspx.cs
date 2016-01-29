@@ -21,10 +21,13 @@ namespace ProjetoParteIII
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                ligacaoBaseDados();
-            }
+            //if (Session["userRole"].ToString().Contains("admin") || Session["userRole"] != null)
+            //{
+                if (!IsPostBack)
+                {
+                    ligacaoBaseDados();
+                }
+            //}
         }
 
         private void ligacaoBaseDados()

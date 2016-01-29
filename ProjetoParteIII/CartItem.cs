@@ -12,6 +12,8 @@ namespace ProjetoParteIII
         private string _productName;
         private int _productQuantity;
         private decimal _productPrice;
+        private decimal _discount;
+
 
         public int ProductID
         {
@@ -37,6 +39,11 @@ namespace ProjetoParteIII
             set { _productPrice = value; }
         }
 
+        public decimal Discount
+        {
+            get { return _discount; }
+            //set { _discount = value; }
+        }
 
         public CartItem(int productID, string productName, int productQuantity, decimal productPrice)
         {

@@ -17,7 +17,12 @@
                   <td><ASP:CheckBox id="chkPersistCookie" runat="server" autopostback="false" /></td>
                   <td></td>
                </tr>
+                <tr>
+                    <td>
+                        <asp:Button id="ButtonLogonServer" runat="server" Text="Logon" OnClick="ButtonLogonServer_Click" />
+                    </td>
+                </tr>
             </table>
-            <asp:Button id="ButtonLogonServer" runat="server" Text="Logon" OnClick="ButtonLogonServer_Click" />
+            
         </div>
 </asp:Content>

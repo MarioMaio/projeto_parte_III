@@ -15,7 +15,7 @@
                     <asp:Button ID="buttonSearchProduct" runat="server" Text="Procurar" OnClick="procurarProdutos" />
                 </div>
                 <div>
-                    <asp:ListView ID="productListHome" runat="server" GroupItemCount="6">
+                    <asp:ListView ID="productListHome" runat="server" GroupItemCount="6" OnItemCommand="adicionarItem_ItemCommand">
                         <EmptyDataTemplate>
                             <table>
                                 <tr>
@@ -36,6 +36,7 @@
                                             <a href="ProductDetails.aspx?productID=<%# Eval("ProductID") %>" class="productName">
                                                 <span>
                                                     <%# Eval("ProductName") %>
+                                                    <asp:HiddenField ID="hiddenFieldProductName" runat="server" Value='<%# Eval("ProductName") %>' />
                                                 </span>
                                             </a>
                                             <br />
@@ -46,15 +47,15 @@
                                             <br />
                                             <span class="productUnitPrice">
                                                 <b>Preço unitário: </b><%#:String.Format("{0:c}", Eval("UnitPrice"))%>
+                                                <asp:HiddenField ID="hiddenFieldProductUnitPrice" runat="server" Value='<%# Eval("UnitPrice")%>' />
                                             </span>
                                             <br />
                                             <span class="addItens">
                                                 <asp:TextBox ID="textBoxProductID" runat="server" Visible="false" Enabled="false" Text='<%# Eval("ProductID") %>'></asp:TextBox>
                                                 <asp:TextBox ID="textBoxQuantity"  runat="server" Text="1" Width="20"></asp:TextBox>
                                                 
-                                                <asp:HyperLink ID="hyperLinkAdicionar" runat="server" NavigateUrl='<%# string.Format("~/carrinhoCompras.aspx?pID={0}&pQuantity={1}&pName={2}&pUnitPrice={3}", HttpUtility.UrlEncode(Eval("ProductID").ToString()), 1, HttpUtility.UrlEncode(Eval("ProductName").ToString()), HttpUtility.UrlEncode(Eval("UnitPrice").ToString())) %>'>Adicionar</asp:HyperLink>
-
-                                                <asp:Button ID="buttonAdd" runat="server" Text="Add" CommandArgument='<%# Eval("ProductID") %>' OnClick="adicionarArtigo_OnClick" />
+                                                <asp:LinkButton ID="linkButtonAdicionar" runat="server">Adicionar</asp:LinkButton>
+                                                
                                             </span>
                                             <br />
                                         </td>

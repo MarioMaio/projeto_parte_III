@@ -17,7 +17,7 @@
                         <ItemTemplate>
                             <asp:TextBox runat="server" ID="txtQuantity" Columns="5" Text='<%# DataBinder.Eval(Container, "DataItem.ProductQuantity") %>'></asp:TextBox><br />
                             <asp:LinkButton runat="server" ID="btnRemove" Text="Remove" CommandArgument='<%# Eval("ProductId") %>' style="font-size:12px;" OnClick="removeItem_onClick"></asp:LinkButton>
- 
+                            <asp:HiddenField ID="hiddenFieldProductID" runat="server" Value='<%# Eval("ProductId") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="ProductPrice" HeaderText="Price" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" DataFormatString="{0:C}" />
@@ -33,6 +33,7 @@
             </asp:GridView>
  
             <br />
-            <asp:Button runat="server" ID="btnUpdateCart" Text="Update Cart"/>
+            <asp:Button runat="server" ID="btnUpdateCart" Text="Update Cart" OnClick="updateItem_onClick"/>
+        <asp:Button runat="server" ID="buttonValidarCompra" Text="Efetuar compra" OnClick="confirmarCompra_onClick"/>
         </div>
 </asp:Content>

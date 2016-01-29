@@ -9,20 +9,13 @@ namespace ProjetoParteIII
 {
     public partial class carrinhoCompras : System.Web.UI.Page
     {
-        private int pId;
-        private string pName;
-        private int pQuantity;
-        private decimal pUnitPrice;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            pId = Convert.ToInt16(Request.QueryString["pID"]);
-            pName = Request.QueryString["pName"];
-            pQuantity = Convert.ToInt16(Request.QueryString["pQuantity"]);
-            pUnitPrice = Convert.ToDecimal(Request.QueryString["pUnitPrice"]);
-
-            ShoppingCart.Instance.AddItem(pId, pName, pQuantity, pUnitPrice);
-            preencherCarrinho();
+            if (!IsPostBack)
+            {
+                preencherCarrinho();
+            }
         }
 
         private void preencherCarrinho()
@@ -45,6 +38,32 @@ namespace ProjetoParteIII
             {
                 Label lbl = (Label)e.Row.FindControl("lblTotal");
                 lbl.Text = String.Format("{0:c}", ShoppingCart.Instance.GetSubTotal());
+            }
+        }
+
+        protected void updateItem_onClick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < gvShoppingCart.Rows.Count; i++)
+            {
+                string productID;
+                productID = ((HiddenField)gvShoppingCart.Rows[i].FindControl("hiddenFieldProductID")).Value;
+
+                TextBox quantityTextBox = new TextBox();
+                quantityTextBox = (TextBox)gvShoppingCart.Rows[i].FindControl("txtQuantity");
+                ShoppingCart.Instance.SetItemQuantity(Convert.ToInt16(productID), Convert.ToInt16(quantityTextBox.Text.ToString()));
+            }
+            preencherCarrinho();
+        }
+
+        protected void confirmarCompra_onClick(object sender, EventArgs e)
+        {
+            if (Session["userCompare"] != null)
+            {
+                Response.Write("Login efetuado");
+            }
+            else
+            {
+                Response.Redirect("~/logon.aspx");
             }
         }
     }
