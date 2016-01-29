@@ -30,5 +30,22 @@ namespace ProjetoParteIII
             gvShoppingCart.DataSource = ShoppingCart.Instance.Items;
             gvShoppingCart.DataBind();
         }
+
+        protected void removeItem_onClick(object sender, EventArgs e)
+        {
+            LinkButton linkButton = sender as LinkButton;
+
+            ShoppingCart.Instance.RemoveItem(Convert.ToInt16(linkButton.CommandArgument));
+            preencherCarrinho();
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                Label lbl = (Label)e.Row.FindControl("lblTotal");
+                lbl.Text = String.Format("{0:c}", ShoppingCart.Instance.GetSubTotal());
+            }
+        }
     }
 }
