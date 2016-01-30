@@ -21,6 +21,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="ProductPrice" HeaderText="Price" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" DataFormatString="{0:C}" />
+                    <asp:BoundField DataField="Discount" HeaderText="Desconto" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" DataFormatString="{0:P}" />
                     <asp:TemplateField HeaderText="SubTotal" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right">
                         <FooterTemplate>
                             <asp:Label ID="lbltotal" runat="server"></asp:Label>

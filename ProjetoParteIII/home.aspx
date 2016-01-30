@@ -19,7 +19,7 @@
                         <EmptyDataTemplate>
                             <table>
                                 <tr>
-                                    <td>No data was returned.</td>
+                                    <td>Nem produto correspondente à pesquisa.</td>
                                 </tr>
                             </table>
                         </EmptyDataTemplate>

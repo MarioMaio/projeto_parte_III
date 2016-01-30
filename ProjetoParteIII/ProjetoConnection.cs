@@ -20,8 +20,8 @@ namespace ProjetoParteIII
                 #region Data command
                 StringBuilder stringCommand = new StringBuilder();
                 stringCommand.Append("SELECT TOP 12 o.ProductID, SUM(Quantity) as totalVendas, ProductName, c.CategoryName, p.UnitPrice ");
-                stringCommand.Append("FROM [Order Details] as o ");
-                //stringCommand.Append("FROM [OrderDetails] as o "); //PC de casa
+                //stringCommand.Append("FROM [Order Details] as o ");
+                stringCommand.Append("FROM [OrderDetails] as o "); //PC de casa
                 stringCommand.Append("inner join Products as p on p.ProductID = o.ProductID ");
                 stringCommand.Append("inner join Categories as c on c.CategoryID = p.CategoryID ");
                 stringCommand.Append("group by o.ProductID, ProductName, c.CategoryName, p.UnitPrice ");

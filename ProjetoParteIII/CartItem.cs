@@ -12,7 +12,7 @@ namespace ProjetoParteIII
         private string _productName;
         private int _productQuantity;
         private decimal _productPrice;
-        private decimal _discount;
+        private decimal _discount = 0;
 
 
         public int ProductID
@@ -30,7 +30,7 @@ namespace ProjetoParteIII
         public int ProductQuantity
         {
             get { return _productQuantity; }
-            set { _productQuantity = value; }
+            set { _productQuantity = value; definirDesconto(); }
         }
 
         public decimal ProductPrice
@@ -51,6 +51,27 @@ namespace ProjetoParteIII
             _productName = productName;
             _productQuantity = productQuantity;
             _productPrice = productPrice;
+            definirDesconto();
+        }
+
+        protected void definirDesconto()
+        {
+            if (_productQuantity > 2 && _productQuantity < 6)
+            {
+                _discount = 0.03m;
+            }
+            else if (_productQuantity > 5 && _productQuantity < 16)
+            {
+                _discount = 0.05m;
+            }
+            else if (_productQuantity > 15)
+            {
+                _discount = 0.10m;
+            }
+            else if (_productQuantity < 3)
+            {
+                _discount = 0;
+            }
         }
 
         public CartItem(int productID)
@@ -60,7 +81,29 @@ namespace ProjetoParteIII
 
         public decimal TotalPrice
         {
-            get { return _productPrice * _productQuantity; }
+            get 
+            {
+                /*if (_productQuantity > 2 && _productQuantity < 6)
+                {
+                    _discount = 0.03m;
+                    return _productPrice * _productQuantity - (_productPrice * _productQuantity) * _discount;
+                }
+                else if (_productQuantity > 5 && _productQuantity < 16)
+                {
+                    _discount = 0.05m;
+                    return _productPrice * _productQuantity - (_productPrice * _productQuantity) * _discount;
+                }
+                else if (_productQuantity > 15)
+                {
+                    _discount = 0.10m;*/
+                    return _productPrice * _productQuantity - (_productPrice * _productQuantity) * _discount;
+                /*}
+                else
+                {
+                    return _productPrice * _productQuantity; 
+                }*/
+                
+            }
         }
 
         /**
