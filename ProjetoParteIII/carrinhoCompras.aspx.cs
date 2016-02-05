@@ -59,7 +59,10 @@ namespace ProjetoParteIII
         {
             if (Session["userCompare"] != null)
             {
-                Response.Write("Login efetuado");
+                InserirEncomenda inserirEncomenda = new InserirEncomenda();
+                inserirEncomenda.insertOrder(Session["userCompare"].ToString());
+                //Response.Write("Login efetuado");
+                Response.Redirect("~/home.aspx");
             }
             else
             {

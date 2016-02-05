@@ -15,8 +15,8 @@ namespace ProjetoParteIII
         private SqlConnection sqlConnection;
         private DataSet dsProducts;
         private SqlDataAdapter daProducts;
-        //private const string tableNameOrderDetails = "[Order Details]";
-        private const string tableNameOrderDetails = "[OrderDetails]"; //PC de casa
+        private const string tableNameOrderDetails = "[Order Details]";
+        //private const string tableNameOrderDetails = "[OrderDetails]"; //PC de casa
         private const string tableNameProducts = "Products";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -37,8 +37,8 @@ namespace ProjetoParteIII
 
         private void ligacaoBaseDados()
         {
-            using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
-            //using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
+            //using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
+            using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
             {
                 daProducts = ProjetoConnection.DataRead(sqlConnection, tableNameProducts, true);
                 dsProducts = new DataSet();
@@ -51,8 +51,8 @@ namespace ProjetoParteIII
 
         protected void selecionarPorCategorias(int categoryID)
         {
-            using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
-            //using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
+            //using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
+            using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
             {
                 daProducts = ProjetoConnection.DataRead(sqlConnection, "p.CategoryID", categoryID);
                 dsProducts = new DataSet();

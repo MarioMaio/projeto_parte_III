@@ -111,6 +111,7 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InserirEncomenda.cs" />
     <Compile Include="logon.aspx.cs">
       <DependentUpon>logon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
