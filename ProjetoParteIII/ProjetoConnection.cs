@@ -97,6 +97,37 @@ namespace ProjetoParteIII
             }
         }
 
+        public static SqlDataAdapter DataRead(SqlConnection sqlConnection, string tableName, string fieldName, int valueWhere)
+        {
+            try
+            {
+                #region Data command
+                StringBuilder stringCommand = new StringBuilder();
+                stringCommand.Append("Select o.*, p.ProductName, (Quantity*o.UnitPrice - (Quantity*o.UnitPrice)*Discount) as total FROM ");
+                stringCommand.Append(tableName);
+                stringCommand.Append(" as o inner join Products as p on p.ProductID = o.ProductID WHERE ");
+                stringCommand.Append(fieldName);
+                stringCommand.Append(" = '");
+                stringCommand.Append(valueWhere);
+                stringCommand.Append("'");
+                #endregion
+
+                #region Database connection
+                //sqlConnection = new SqlConnection(@"Data Source=MÁRIO-PC\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true");
+                #endregion
+
+                #region Data adapter
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(stringCommand.ToString(), sqlConnection);
+                #endregion
+
+                return dataAdapter;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static SqlDataAdapter DataRead(SqlConnection sqlConnection, string fieldWhere, string whereCondition)
         {
             try

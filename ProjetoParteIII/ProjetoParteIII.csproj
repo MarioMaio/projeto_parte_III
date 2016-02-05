@@ -64,6 +64,7 @@
     <Content Include="administratorPage.aspx" />
     <Content Include="carrinhoCompras.aspx" />
     <Content Include="estilos.css" />
+    <Content Include="historicoCliente.aspx" />
     <Content Include="home.aspx" />
     <Content Include="imagens\Google_logo.jpg" />
     <Content Include="logon.aspx" />
@@ -103,6 +104,13 @@
     <Compile Include="CartItem.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="historicoCliente.aspx.cs">
+      <DependentUpon>historicoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="historicoCliente.aspx.designer.cs">
+      <DependentUpon>historicoCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

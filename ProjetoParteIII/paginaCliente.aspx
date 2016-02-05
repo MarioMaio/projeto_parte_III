@@ -23,4 +23,7 @@
             </tr>
         </tbody>
     </table>
+    <br />
+    <br />
+    <p>Fatura nº: <asp:DropDownList ID="dropDownListFaturas" runat="server" OnSelectedIndexChanged="verHistorico" AutoPostBack="true"></asp:DropDownList></p>
 </asp:Content>
