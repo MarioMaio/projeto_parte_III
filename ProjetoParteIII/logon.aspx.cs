@@ -41,8 +41,8 @@ namespace ProjetoParteIII
 
             try
             {
-                conn = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true");
-                //conn = new SqlConnection(@"server=DESKTOP-R5I2GJD\SQLEXPRESS;Integrated Security=SSPI;database=Northwind");
+                //conn = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true");
+                conn = new SqlConnection(@"server=DESKTOP-R5I2GJD\SQLEXPRESS;Integrated Security=SSPI;database=Northwind");
                 conn.Open();
                 cmd = new SqlCommand("SELECT userPassword FROM users WHERE userEmail=@userEmail", conn);
                 cmd.Parameters.Add("@userEmail", SqlDbType.NVarChar, 50);

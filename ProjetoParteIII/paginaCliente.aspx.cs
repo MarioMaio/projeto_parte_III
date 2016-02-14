@@ -27,8 +27,8 @@ namespace ProjetoParteIII
         }
         private void ligacaoBaseDados()
         {
-            //using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
-            using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
+            using (sqlConnection = new SqlConnection(@"Data Source=DESKTOP-R5I2GJD\SQLEXPRESS; Initial Catalog=Northwind; Integrated Security=true"))
+            //using (sqlConnection = new SqlConnection(@"Data Source=VM_WINDOWS8; Initial Catalog=Northwind; Integrated Security=true"))
             {
                 daCustomer = ProjetoConnection.DataRead(sqlConnection, tableNameCustomers, fieldNameCustomers, Session["userCompare"].ToString(), true);
                 dsCustomer = new DataSet();
